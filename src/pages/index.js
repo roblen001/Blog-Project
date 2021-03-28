@@ -20,7 +20,7 @@ const MainSectionStyled = styled.section`
 `
 
 const BlueSectionStyled = styled.section`
-  height: 2000;
+  height: 1000px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,7 +32,7 @@ const BlueSectionStyled = styled.section`
   flex-direction: row;
 `
 const GreySectionStyled = styled.section`
-  height: 2000;
+  height: 1200px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
