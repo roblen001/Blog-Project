@@ -8,16 +8,30 @@ const PageText = styled.p`
   margin-top: 1.3rem;
   font-weight: 100;
 `
+const StyledBlogCard = styled.div`
+  background-color: rgba(66, 66, 78);
+  width: 30%;
 
+  @media (max-width: 1334px) {
+    width: 90vw;
+    margin-top: 10vh;
+  }
+`
+const DateCatStyled = styled.div`
+  margin-top: 110px;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 402px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
 const BlogCards = ({ title, category, date, id }) => {
   return (
-    <div
-      style={{
-        width: 400,
-        height: 772,
-        backgroundColor: "#43424E",
-      }}
-    >
+    <StyledBlogCard>
       {id === 1 && (
         <StaticImage
           src="../images/ferrari.png"
@@ -58,14 +72,7 @@ const BlogCards = ({ title, category, date, id }) => {
           Aenean fringilla vehicula orci, sed eleifend lacus imperdiet id. Nam
           iaculis lacinia hendrerit.
         </PageText>
-        <div
-          style={{
-            marginTop: 110,
-            flexDirection: "row",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
+        <DateCatStyled>
           <div
             style={{
               backgroundColor: "#5D737E",
@@ -80,9 +87,9 @@ const BlogCards = ({ title, category, date, id }) => {
             <PageText>{category}</PageText>
           </div>
           <PageText>{date}</PageText>
-        </div>
+        </DateCatStyled>
       </div>
-    </div>
+    </StyledBlogCard>
   )
 }
 

@@ -15,6 +15,12 @@ const MainSectionStyled = styled.section`
   background-size: cover;
   width: 100%;
   background-image: url(${props => props.image});
+
+  @media (max-width: 780px) {
+    /* background-image: none; */
+    background-color: rgba(66, 66, 78, 0.47);
+    padding-top: 18vh;
+  }
 `
 const GreySectionStyled = styled.section`
   height: 2000px;
@@ -26,6 +32,15 @@ const GreySectionStyled = styled.section`
   display: flex;
   justify-content: center;
   padding: "10%";
+
+  @media (max-width: 1640px) {
+    /* background-image: none; */
+    height: 2500px;
+  }
+
+  @media (max-width: 817px) {
+    height: 3000px;
+  }
 `
 const StyledDiv = styled.div`
   margin-top: 5%;
@@ -33,6 +48,16 @@ const StyledDiv = styled.div`
   width: 40%;
   background-color: rgba(66, 66, 78);
   padding: 3%;
+
+  @media (max-width: 1200px) {
+    width: 80vw;
+    padding: 2%;
+  }
+
+  @media (max-width: 400px) {
+    width: 100vw;
+    padding: 2px;
+  }
 `
 
 const PageText = styled.p`
@@ -53,6 +78,10 @@ const PageText = styled.p`
     color: rgba(66, 66, 78);
     margin-top: 2rem;
     display: inline-block;
+  }
+
+  @media (max-width: 1200px) {
+    text-align: center;
   }
 `
 

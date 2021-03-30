@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 import contactCover from "../images/contactCover.png"
 import MainSection from "../components/MainSection"
+import Footer from "../components/Footer"
 
 const MainSectionStyled = styled.section`
   height: 100vh;
@@ -12,6 +13,12 @@ const MainSectionStyled = styled.section`
   background-size: cover;
   width: 100%;
   background-image: url(${contactCover});
+
+  @media (max-width: 780px) {
+    /* background-image: none; */
+    background-color: rgba(66, 66, 78, 0.47);
+    padding-top: 18vh;
+  }
 `
 const GreySectionStyled = styled.section`
   height: 100vh;
@@ -24,22 +31,41 @@ const GreySectionStyled = styled.section`
   justify-content: center;
   align-items: center;
 `
+const StlyedArticle = styled.article`
+  background-color: #43424e;
+  width: 50%;
+  height: 50%;
+  @media (max-width: 780px) {
+    width: 90%;
+  }
+`
+const StyledInput = styled.input`
+  width: 50%;
+  height: 8%;
+  margin-top: 2%;
+  @media (max-width: 780px) {
+    width: 90%;
+  }
+`
 
+const StyledTxtArea = styled.input`
+  width: 50%;
+  margin-top: 2%;
+  @media (max-width: 780px) {
+    width: 90%;
+    height: 50%;
+  }
+`
 const Contact = () => {
   return (
     <>
+      <SEO title="Contact" />
       <MainSectionStyled>
         <MainSection title={"Contact Us"} />
       </MainSectionStyled>
       <SEO title="Contact" description="welcome to the contact page" />
       <GreySectionStyled>
-        <article
-          style={{
-            backgroundColor: "#43424E",
-            width: "50%",
-            height: "50%",
-          }}
-        >
+        <StlyedArticle>
           <form
             style={{
               display: "flex",
@@ -59,24 +85,9 @@ const Contact = () => {
                 alignItems: "center",
               }}
             >
-              <input
-                type="text"
-                placeholder="Name"
-                name="name"
-                style={{ width: "50%", height: "8%", marginTop: "2%" }}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                style={{ width: "50%", height: "8%", marginTop: "2%" }}
-              />
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="message"
-                style={{ width: "50%", marginTop: "2%" }}
-              />
+              <StyledInput type="text" placeholder="Name" name="name" />
+              <StyledInput type="email" placeholder="Email" name="email" />
+              <StyledTxtArea name="message" rows="5" placeholder="message" />
             </div>
             <button
               type="submit"
@@ -89,8 +100,9 @@ const Contact = () => {
               submit here
             </button>
           </form>
-        </article>
+        </StlyedArticle>
       </GreySectionStyled>
+      <Footer />
     </>
   )
 }

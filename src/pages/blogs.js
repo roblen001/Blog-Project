@@ -8,6 +8,7 @@ import blogsImage from "../images/blogCover.png"
 import BlogBigCard from "../components/BlogBigCards"
 import { graphql } from "gatsby"
 import Footer from "../components/Footer"
+import SEO from "../components/seo"
 
 const GreySectionStyled = styled.section`
   height: 200vh;
@@ -19,6 +20,10 @@ const GreySectionStyled = styled.section`
   flex-direction: column;
   justify-content: space-evenly;
   background-color: rgba(66, 66, 78, 0.47);
+
+  @media (max-width: 817px) {
+    height: 2200px;
+  }
 `
 
 const MainSectionStyled = styled.section`
@@ -28,6 +33,11 @@ const MainSectionStyled = styled.section`
   background-size: cover;
   width: 100%;
   background-image: url(${blogsImage});
+  @media (max-width: 780px) {
+    /* background-image: none; */
+    background-color: rgba(66, 66, 78, 0.47);
+    padding-top: 18vh;
+  }
 `
 
 const Blogs = ({ data }) => {
@@ -37,6 +47,7 @@ const Blogs = ({ data }) => {
 
   return (
     <>
+      <SEO title="Blogs" />
       <MainSectionStyled>
         <MainSection title={"Blogs and News"} />
       </MainSectionStyled>

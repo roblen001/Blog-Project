@@ -15,7 +15,7 @@ const Footer = () => {
     <FooterDivStyled>
       <footer className="footer">
         <div>
-          <h4 style={{ color: "white" }}>
+          <h4 style={{ color: "white", textAlign: "center" }}>
             copyright&copy;{new Date().getFullYear()}
             <span> Roberto Lentini</span> all rights reserved
           </h4>

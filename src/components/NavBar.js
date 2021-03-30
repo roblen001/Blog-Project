@@ -34,11 +34,22 @@ const DivStyled = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 5vh;
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+  }
 `
 
-const ListItemStyled = styled.ul`
+const LinkWithActive = styled(Link)`
   text-decoration: none;
+  color: #011627;
+  font-size: 21;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
+const ListItemStyled = styled.ul``
 
 const NavBar = () => {
   return (
@@ -47,16 +58,7 @@ const NavBar = () => {
         {pages.map(page => {
           return (
             <ListItemStyled key={page.text}>
-              <Link
-                to={page.url}
-                style={{
-                  textDecoration: "none",
-                  color: "#011627",
-                  fontSize: 21,
-                }}
-              >
-                {page.text}
-              </Link>
+              <LinkWithActive to={page.url}>{page.text}</LinkWithActive>
             </ListItemStyled>
           )
         })}

@@ -8,6 +8,10 @@ const PageText = styled.p`
   color: white;
   margin-top: 1.3rem;
   font-weight: 100;
+
+  @media (max-width: 817px) {
+    text-align: center;
+  }
 `
 const CardStyled = styled.div`
   width: 80vw;
@@ -15,6 +19,24 @@ const CardStyled = styled.div`
   height: 50vh;
   flex-direction: row;
   display: flex;
+
+  @media (max-width: 817px) {
+    height: 500px;
+    width: 90vw;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+  }
+`
+const CardTitleStyled = styled.h3`
+  margin-top: 5%;
+  color: white;
+
+  @media (max-width: 817px) {
+    text-align: center;
+  }
 `
 const BlogBigCard = ({ title, category, date, id, slug }) => {
   return (
@@ -29,7 +51,9 @@ const BlogBigCard = ({ title, category, date, id, slug }) => {
           flexDirection: "column",
         }}
       >
-        <h3 style={{ marginTop: "5%", color: "white" }}>Aliquam Commodo </h3>
+        <CardTitleStyled style={{ marginTop: "5%", color: "white" }}>
+          Aliquam Commodo{" "}
+        </CardTitleStyled>
         <div style={{ width: 300 }}>
           <PageText>
             Aliquam commodo diam a nibh dictum sagittis. Duis ultrices ex

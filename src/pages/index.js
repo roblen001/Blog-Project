@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Footer from "../components/Footer"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import MainSection from "../components/MainSection"
 import HomeImage from "../images/HomesCover.png"
@@ -17,6 +17,12 @@ const MainSectionStyled = styled.section`
   background-size: cover;
   width: 100%;
   background-image: url(${HomeImage});
+
+  @media (max-width: 780px) {
+    /* background-image: none; */
+    background-color: rgba(66, 66, 78, 0.47);
+    padding-top: 18vh;
+  }
 `
 
 const BlueSectionStyled = styled.section`
@@ -30,7 +36,29 @@ const BlueSectionStyled = styled.section`
   align-items: center;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 987px) {
+    height: 1500px;
+  }
 `
+
+const BlueSectionStyled2 = styled.section`
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-color: #43424e;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 987px) {
+    height: 1000px;
+  }
+`
+
 const GreySectionStyled = styled.section`
   height: 1200px;
   background-position: center;
@@ -38,6 +66,11 @@ const GreySectionStyled = styled.section`
   background-size: cover;
   width: 100%;
   background-color: rgba(66, 66, 78, 0.47);
+
+  @media (max-width: 1087px) {
+    height: 3000px;
+    justify-content: space-evenly;
+  }
 `
 
 const PageText = styled.p`
@@ -45,13 +78,53 @@ const PageText = styled.p`
   color: white;
   margin-top: 1.3rem;
   font-weight: 100;
+
+  @media (max-width: 780px) {
+    font-size: 16;
+  }
 `
 const PageSubTitle = styled.h1`
   color: white;
   font-weight: 100;
   font-size: 3.5rem;
   margin-bottom: 5vh;
+
+  @media (max-width: 780px) {
+    font-size: 2.5rem;
+  }
 `
+const BlogCardStyledDiv = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  @media (max-width: 1087px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+const ProfileDivStyled = styled.div`
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  @media (max-width: 987px) {
+    flex-direction: column;
+  }
+`
+
+const CoverPageStyled = styled.div`
+  max-width: 500px;
+  margin: 5%;
+`
+const StyledVerticalCarDiv = styled.div`
+  width: 20%;
+
+  @media (max-width: 987px) {
+    width: 0;
+  }
+`
+
 const info =
   "The only source for everything you want relating to formula 1 news, updates and predictions"
 
@@ -66,7 +139,7 @@ const IndexPage = ({ data }) => {
       <MainSectionStyled>
         <MainSection title={"The Formula 1 Blog"} info={info} />
       </MainSectionStyled>
-      <BlueSectionStyled>
+      <BlueSectionStyled2>
         {/* <StaticImage
         src="../images/palmTreesCar.png"
         width={1204}
@@ -76,7 +149,7 @@ const IndexPage = ({ data }) => {
         style={{ marginRight: -100, marginTop: "15%", marginLeft: "15%" }}
       /> */}
 
-        <div style={{ maxWidth: 500, margin: "5%" }}>
+        <CoverPageStyled>
           <PageSubTitle>Passion Produces Good Writing</PageSubTitle>
           <PageText>
             Aliquam commodo diam a nibh dictum sagittis. Duis ultrices ex
@@ -90,15 +163,17 @@ const IndexPage = ({ data }) => {
             faucibus orci luctus et ultrices posuere cubilia curae; Duis at enim
             at felis bibendum porta. Nunc at metus id nisl maximus sagittis.
           </PageText>
-        </div>
-        <StaticImage
-          src="../images/verticalCar.png"
-          quality={95}
-          formats={["AUTO", "WEBP", "AVIF"]}
-          alt="A Gatsby astronaut"
-          style={{ alignSelf: "center", width: "20%" }}
-        />
-      </BlueSectionStyled>
+        </CoverPageStyled>
+        <StyledVerticalCarDiv>
+          <StaticImage
+            src="../images/verticalCar.png"
+            quality={95}
+            formats={["AUTO", "WEBP", "AVIF"]}
+            alt="A Gatsby astronaut"
+            style={{ alignSelf: "center" }}
+          />
+        </StyledVerticalCarDiv>
+      </BlueSectionStyled2>
 
       <GreySectionStyled
         style={{
@@ -109,14 +184,7 @@ const IndexPage = ({ data }) => {
         <PageSubTitle style={{ textAlign: "center", color: "#011627" }}>
           Recent News and Blogs
         </PageSubTitle>
-        <div
-          style={{
-            display: "flex",
-            display: "flex",
-            justifyContent: "space-evenly",
-            marginTop: "2%",
-          }}
-        >
+        <BlogCardStyledDiv>
           <BlogCards
             title={blogs[0].title}
             category={blogs[0].category}
@@ -137,7 +205,7 @@ const IndexPage = ({ data }) => {
             // image={"../images/win.png"}
             id={3}
           />
-        </div>
+        </BlogCardStyledDiv>
         <Link to="/blogs/" style={{ color: "#011627" }}>
           <PageSubTitle
             style={{
@@ -156,14 +224,7 @@ const IndexPage = ({ data }) => {
         style={{ justifyContent: "space-evenly", flexDirection: "column" }}
       >
         <PageSubTitle>About Us</PageSubTitle>
-        <div
-          style={{
-            flexDirection: "row",
-            display: "flex",
-            width: "100%",
-            justifyContent: "space-evenly",
-          }}
-        >
+        <ProfileDivStyled>
           <div
             style={{
               display: "flex",
@@ -178,7 +239,6 @@ const IndexPage = ({ data }) => {
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}
               alt="A Gatsby astronaut"
-              style={{ alignSelf: "center" }}
             />
             <h3 style={{ marginTop: "5%", color: "white" }}>
               Aliquam Commodo{" "}
@@ -218,7 +278,7 @@ const IndexPage = ({ data }) => {
               </PageText>
             </div>
           </div>
-        </div>
+        </ProfileDivStyled>
         <Link
           to="/about/"
           style={{
